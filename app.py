@@ -1,3 +1,4 @@
+import io
 import joblib
 import numpy as np
 import pandas as pd
@@ -15,16 +16,16 @@ st.write(
     "Production-Grade Machine Learning Pipeline (Random Forest Regressor)"
 )
 
-# ==========================================
-# 2. Safe Model Loading (Bypasses OS Permission Errors)
-# ==========================================
 
-
+# ==========================================
+# 2. In-Memory Pipeline Loading (Fixes Errno 13)
+# ==========================================
 @st.cache_resource
 def load_pipeline():
-  # Opening explicitly in 'rb' (read-binary) mode prevents Errno 13 on Streamlit Cloud
+  # Reads file as byte array directly into RAM to bypass OS permission checks
   with open("crop_yield_pipeline.pkl", "rb") as f:
-    return joblib.load(f)
+    model_bytes = f.read()
+  return joblib.load(io.BytesIO(model_bytes))
 
 
 try:
