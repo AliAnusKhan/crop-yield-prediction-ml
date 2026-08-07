@@ -2,6 +2,8 @@
 
 An end-to-end, production-grade Machine Learning pipeline and interactive web application built with **Streamlit** and **Scikit-Learn** to predict agricultural crop yields across different countries and environmental conditions.
 
+🚀 **Live Streamlit Web App:** [Click Here to View Live App](https://crop-yield-prediction-ml-dobvnt4kwsfak9skyzbrrk.streamlit.app/)
+
 ---
 
 ## 📌 Project Overview
